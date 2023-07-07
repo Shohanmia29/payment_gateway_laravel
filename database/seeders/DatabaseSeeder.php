@@ -24,14 +24,14 @@ class DatabaseSeeder extends Seeder
                 'name' => 'User',
                 'phone' => '01700000000',
                 'email' => 'user@gmail.com',
-                'password' => Hash::make('123456789')
+                'password' => Hash::make('user@gmail.com')
             ])
         )->markEmailAsVerified();
 
         $admin = Admin::create([
             'name' => 'Admin',
             'email' => 'admin@gmail.com',
-            'password' => Hash::make('123456789')
+            'password' => Hash::make('admin@gmail.com')
         ]);
 
         $this->call(LaratrustSeeder::class);

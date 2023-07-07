@@ -1,5 +1,5 @@
-## Payment Gateway
+## Payment Gateway system
 
-One guard only user, with laratrust, enum.
+Two guard  admin  and user, with laratrust, enum.
 
  

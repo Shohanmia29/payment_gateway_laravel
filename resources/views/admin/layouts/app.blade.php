@@ -29,10 +29,30 @@
         class="bg-slate-800 h-screen w-64 overflow-y-scroll scrollbar-hide fixed z-10 transition duration-300"
         :class="{ '-translate-x-64' : !sidebarOpen }"
     >
-        <div class="p-8 md:pl-4 flex md:flex-row-reverse justify-between items-center flex-wrap">
-            <x-application-logo class="mt-4 mb-4"/>
+        <div class="p-8 md:pl-4 flex   justify-between items-center flex-wrap">
+              <div class="text-white text-xl">Admin Panel</div>
         </div>
         <div class="w-full flex flex-col text-slate-300 nav-links">
+            <div class="w-full p-3 mt-4 font-semibold">Ecommerce</div>
+            <div class="w-full flex flex-col">
+                @can('category-read')
+                    <a
+                        href="{{ route('admin.category.index') }}"
+                        class="w-full py-3 px-4 flex justify-between items-center hover:bg-slate-900 border-l-4 border-transparent hover:border-teal-400"
+                    >
+                        <span>{{ __('Category') }}</span>
+                    </a>
+                @endcan
+                    @can('product-read')
+                    <a
+                        href="{{ route('admin.product.index') }}"
+                        class="w-full py-3 px-4 flex justify-between items-center hover:bg-slate-900 border-l-4 border-transparent hover:border-teal-400"
+                    >
+                        <span>{{ __('Product') }}</span>
+                    </a>
+                @endcan
+
+            </div>
             <div class="w-full p-3 mt-4 font-semibold">General</div>
             <div class="w-full flex flex-col">
                 <a
@@ -55,8 +75,9 @@
                         <span>{{ __('User') }}</span>
                     </a>
                 @endcan
-                
+
             </div>
+
             <div class="w-full p-3 mt-4 font-semibold">{{ __('Security') }}</div>
             <div class="w-full flex flex-col">
                 @if(auth()->user()->isA('admin'))

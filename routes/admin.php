@@ -83,4 +83,13 @@ Route::prefix('admin')->name('admin.')->group(function () {
     });
 
 
+//    Ecommerce
+    Route::middleware('auth:admin')->group(function (){
+            Route::resource('category',App\Http\Controllers\Admin\CategoryController::class);
+            Route::resource('product',App\Http\Controllers\Admin\ProductController::class);
+
+    });
+
+
+
 });
